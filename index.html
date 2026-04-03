@@ -131,7 +131,21 @@ h1 {
 <img src="IMG_3423.jpeg" onclick="openModal(this.src)">
 <img src="IMG_3424.jpeg" onclick="openModal(this.src)">
 </div>
-
+.gallery img {
+  width: 100%;
+  max-width: 120px;
+  border-radius: 12px;
+  margin: 5px;
+  object-fit: cover;
+  height: 120px;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+  .gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 /* появление */
 .fade {
   opacity: 0;
