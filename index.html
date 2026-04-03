@@ -4,7 +4,32 @@
 <meta charset="UTF-8">
 <title>Ирина | Маникюр Якутск</title>
 
+  <div id="modal" onclick="closeModal()" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:1000;
+">
+  <img id="modalImg" style="max-width:90%; border-radius:15px;">
+</div>
 <style>
+
+  <script>
+function openModal(src) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modalImg').src = src;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -68,15 +93,21 @@ h1 {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #d48cff;
+  background: linear-gradient(135deg, #25D366, #6affc1);
   color: white;
-  padding: 15px 18px;
+  padding: 16px 20px;
   border-radius: 50px;
   font-size: 14px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   text-decoration: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: pulse 2s infinite;
 }
 
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
 /* карточки */
 .card {
   background: rgba(255,255,255,0.4);
@@ -94,16 +125,12 @@ h1 {
 }
 
 /* галерея */
-.gallery img {
-  width: 100px;
-  border-radius: 12px;
-  margin: 5px;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.1);
-}
+<div class="card gallery fade">
+  <h3>Мои работы 💖</h3>
+  <img src="nail1.jpg" onclick="openModal(this.src)">
+  <img src="nail2.jpg" onclick="openModal(this.src)">
+  <img src="nail3.jpg" onclick="openModal(this.src)">
+</div>
 
 /* появление */
 .fade {
@@ -133,7 +160,11 @@ h1 {
 
 <h1>Ирина 💅</h1>
 <p class="subtitle">Маникюр • Якутск</p>
-<p>Маникюр, в который влюбляются 💖</p>
+<p>Премиальный маникюр с идеальной ноской до 4 недель 💖  
+Подчеркну твою красоту и ухоженность ✨</p>
+  <p style="font-size:14px; color:#777;">
+Работаю только на качественных материалах 💎
+</p>
 
 <a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться%20на%20маникюр%20💅"" class="button">Записаться</a>
 
