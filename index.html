@@ -4,50 +4,32 @@
 <meta charset="UTF-8">
 <title>Ирина | Маникюр Якутск</title>
 
-  <div id="modal" onclick="closeModal()" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-z-index:1000;
-">
-  <img id="modalImg" style="max-width:90%; border-radius:15px;">
-</div>
 <style>
-
-  <script>
-function openModal(src) {
-  document.getElementById('modal').style.display = 'flex';
-  document.getElementById('modalImg').src = src;
-}
-
-function closeModal() {
-  document.getElementById('modal').style.display = 'none';
-}
-</script>
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #fdecef, #f8e1ff, #ffffff);
   overflow-x: hidden;
 }
 
-/* блёстки */
+/* ✨ БЛЁСТКИ */
 .sparkle {
   position: fixed;
   width: 6px;
   height: 6px;
   background: white;
   border-radius: 50%;
-  opacity: 0.7;
-  animation: float 6s ггжя
-  from {transform: translateY(100vh);}
-  to {transform: translateY(-10vh);}
+  opacity: 0.8;
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10vh);
+  }
+  to {
+    transform: translateY(110vh);
+  }
 }
 
 /* контейнер */
@@ -58,13 +40,16 @@ body {
   text-align: center;
 }
 
-/* заголовок */
-h1 {
-  font-size: 30px;
+/* ✨ Появление */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-.subtitle {
-  color: #888;
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
 }
 
 /* кнопка */
@@ -76,35 +61,16 @@ h1 {
   text-decoration: none;
   display: inline-block;
   margin-top: 15px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(212,140,255,0.4);
-  transition: 0.3s;
-}
-
-.button:hover {
-  transform: scale(1.05);
-}
-
-/* плавающая кнопка */
-.floating-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #25D366, #6affc1);
-  color: white;
-  padding: 16px 20px;
-  border-radius: 50px;
-  font-size: 14px;
-  text-decoration: none;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   animation: pulse 2s infinite;
 }
 
+/* 💖 Пульсация кнопки */
 @keyframes pulse {
   0% {transform: scale(1);}
-  50% {transform: scale(1.1);}
+  50% {transform: scale(1.08);}
   100% {transform: scale(1);}
 }
+
 /* карточки */
 .card {
   background: rgba(255,255,255,0.4);
@@ -112,47 +78,58 @@ h1 {
   padding: 25px;
   border-radius: 20px;
   margin: 25px 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* QR */
-.qr img {
-  width: 150px;
-  border-radius: 15px;
 }
 
 /* галерея */
-<div class="card gallery fade">
-  <h3>Мои работы 💖</h3>
-  <img src="IMG_3422.jpeg" onclick="openModal(this.src)">
-<img src="IMG_3423.jpeg" onclick="openModal(this.src)">
-<img src="IMG_3424.jpeg" onclick="openModal(this.src)">
-</div>
-.gallery img {
-  width: 100%;
-  max-width: 120px;
-  border-radius: 12px;
-  margin: 5px;
-  object-fit: cover;
-  height: 120px;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-  .gallery {
+.gallery {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-}
-/* появление */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 1s;
+  justify-content: center;
 }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+.gallery img {
+  width: 100%;
+  max-width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+/* модалка */
+#modal {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+}
+
+#modal img {
+  max-width:90%;
+  border-radius:15px;
+}
+
+/* плавающая кнопка */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  animation: pulse 2s infinite;
 }
 </style>
 
@@ -160,38 +137,36 @@ h1 {
 
 <body>
 
-<!-- блёстки -->
-<div class="sparkle" style="left:10%; animation-delay:0s;"></div>
-<div class="sparkle" style="left:30%; animation-delay:2s;"></div>
-<div class="sparkle" style="left:50%; animation-delay:4s;"></div>
-<div class="sparkle" style="left:70%; animation-delay:1s;"></div>
-<div class="sparkle" style="left:90%; animation-delay:3s;"></div>
+<!-- ✨ БЛЁСТКИ -->
+<div class="sparkle" style="left:10%; animation-duration:5s;"></div>
+<div class="sparkle" style="left:30%; animation-duration:7s;"></div>
+<div class="sparkle" style="left:50%; animation-duration:6s;"></div>
+<div class="sparkle" style="left:70%; animation-duration:8s;"></div>
+<div class="sparkle" style="left:90%; animation-duration:5s;"></div>
+
+<!-- модалка -->
+<div id="modal" onclick="closeModal()">
+  <img id="modalImg">
+</div>
 
 <div class="container">
 
-<h1>Ирина 💅</h1>
-<p class="subtitle">Маникюр • Якутск</p>
-<p>Премиальный маникюр с идеальной ноской до 4 недель 💖  
-Подчеркну твою красоту и ухоженность ✨</p>
-  <p style=".work-img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 20px;
-    margin: 10px 0;
-}
+<h1 class="fade">Ирина 💅</h1>
+<p class="fade">Маникюр • Якутск</p>
+
+<p class="fade">
+Премиальный маникюр с идеальной ноской до 4 недель 💖<br>
+Подчеркну твою красоту и ухоженность ✨<br>
 Работаю только на качественных материалах 💎
 </p>
 
-<a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться%20на%20маникюр%20💅"" class="button">Записаться</a>
+<a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться" class="button fade">
+Записаться
+</a>
 
 <div class="card fade">
   <h2>🎁 Бонусная система</h2>
   <p>Каждое второе посещение — скидка 10%</p>
-</div>
-
-<div class="qr fade">
-  <p>Сканируйте после визита ✨</p>
-  <img src="qr-code.png">
 </div>
 
 <div class="card fade">
@@ -203,32 +178,53 @@ h1 {
 </div>
 
 <div class="card gallery fade">
-  <h3>Мои работы 💖</h3>
-<img src="IMG_3422.jpeg" class="work-img">
-<img src="IMG_3423.jpeg" class="work-img">
-<img src="IMG_3424.jpeg" class="work-img">
-</div> 
+  <h3 style="width:100%">Мои работы 💖</h3>
 
-<p>Свободные окна ограничены ✨</p>
+  <img src="IMG_3422.jpeg" onclick="openModal(this.src)">
+  <img src="IMG_3423.jpeg" onclick="openModal(this.src)">
+  <img src="IMG_3424.jpeg" onclick="openModal(this.src)">
+</div>
 
-<a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться%20на%20маникюр%20💅"" class="button">Записаться</a>
+<p class="fade">Свободные окна ограничены ✨</p>
+
+<a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться" class="button fade">
+Записаться
+</a>
 
 </div>
 
-<!-- плавающая кнопка -->
-<a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться%20на%20маникюр%20💅"" class="floating-btn">Запись 💅</a>
+<a href="https://wa.me/79142787375?text=Здравствуйте!%20Хочу%20записаться" class="floating-btn">
+Запись 💅
+</a>
 
 <script>
-const fades = document.querySelectorAll('.fade');
+// ✨ появление по очереди
+const faders = document.querySelectorAll('.fade');
 
-window.addEventListener('scroll', () => {
-  fades.forEach(el => {
+function showOnScroll() {
+  faders.forEach((el, index) => {
     const top = el.getBoundingClientRect().top;
+
     if (top < window.innerHeight - 50) {
-      el.classList.add('show');
+      setTimeout(() => {
+        el.classList.add('show');
+      }, index * 150); // задержка между элементами
     }
   });
-});
+}
+
+window.addEventListener('scroll', showOnScroll);
+window.addEventListener('load', showOnScroll);
+
+// модалка
+function openModal(src) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modalImg').src = src;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
 </script>
 
 </body>
